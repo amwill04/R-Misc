@@ -12,7 +12,7 @@ parseSQL <- function(fileLoc) {
   sqlParsed <- gsub("\\--(.*)", "", sqlParsed, perl = TRUE)
   sqlParsed <- paste(sqlParsed, collapse = " ")
   sqlParsed <- gsub("(/\\*)+?[\\w\\W]+?(\\*/)", "", sqlParsed, perl = TRUE)
-  sqlParsed <- gsub("[\r\n\t]", " ", sqlParsed)
+  sqlParsed <- gsub("\\s\\s+", " ", sqlParsed, perl = TRUE)
   sqlParsed <- gsub("^\\s+|\\s+$", "", sqlParsed)
   return (sqlParsed)
   
