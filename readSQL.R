@@ -10,6 +10,7 @@ parseSQL <- function(fileLoc) {
   
   sqlParsed <- readLines(fileLoc, warn = FALSE)
   sqlParsed <- gsub("\\--(.*)", "", sqlParsed, perl = TRUE)
+  sqlParsed <- gsub("\\t", " ", sqlParsed, perl = TRUE)
   sqlParsed <- paste(sqlParsed, collapse = " ")
   sqlParsed <- gsub("(/\\*)+?[\\w\\W]+?(\\*/)", "", sqlParsed, perl = TRUE)
   sqlParsed <- gsub("\\s\\s+", " ", sqlParsed, perl = TRUE)
