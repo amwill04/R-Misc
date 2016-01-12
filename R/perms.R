@@ -1,4 +1,5 @@
-perms <- function(x, loc){
+perms <-
+function(x, loc){
   # Function to create a list of all possible permitations.
   # Saves csv file.
   temp <- list()

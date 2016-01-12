@@ -1,4 +1,5 @@
-parseSQL <- function(fileLoc) {
+parseSQL <-
+function(fileLoc) {
   # Function to read, parsed and return SQL queries as strings.
   # fileLoc variable is the directory location of the SQL file to be parsed.
   # The functions first reads each lines of the SQL query into a vector
