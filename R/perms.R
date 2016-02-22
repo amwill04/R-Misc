@@ -11,3 +11,24 @@ function(x, loc){
   temp <- do.call("rbind", temp)
   write.csv(temp, loc,row.names = FALSE, quote = FALSE)
 }
+
+geoSeriesLookup <- function(series){
+  temp <- list()
+  for (i in seq_along(series)) {
+    temp[[i]] <- combn(series,i)
+  }
+  temp <- lapply(temp, FUN = function(x){
+    return(split(x, f = col(x)))
+  })
+
+  temp <- lapply(temp, FUN = function(x) {
+
+    temp <- lapply(x, FUN = function(y){
+      return(data.frame(MEDIA_COMBO = sum(y), COMBO_LOOKUP = y))
+    })
+    temp <- do.call("rbind", temp)
+    return(temp)
+  })
+
+  return(do.call("rbind", temp))
+}
